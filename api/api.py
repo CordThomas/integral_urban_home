@@ -1,6 +1,6 @@
 """ Guiding insights:
     https://programminghistorian.org/en/lessons/creating-apis-with-python-and-flask
-
+    https://www.techcoil.com/blog/how-to-deploy-python-3-flask-application-on-raspberry-pi-3-with-raspbian-stretch-lite-nginx-supervisor-virtualenv-and-gunicorn/
     Overview:
     This RESTful API to home intelligence provides a single API interface
     to data about solar production, energy consumption, air quality, local climatalogical
@@ -19,7 +19,7 @@ application = flask.Flask(__name__)
 application.config['DEBUG'] = True
 
 config = configparser.ConfigParser()
-config.read(os.getcwd() + '/api/config.ini')
+config.read(os.getcwd() + '/config.ini')
 
 air_db = sqlite3.connect(config['AIRQUALITY']['DB_PATH'], check_same_thread=False)
 air_cursor = air_db.cursor()
